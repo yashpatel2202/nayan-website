@@ -6,7 +6,6 @@ import Lottie from 'lottie-react';
 import scrollAnimation from './images/scroll.json';
 import Specialities from '@/components/sections/specialities';
 import Projects from '@/components/sections/projects';
-import AboutUs from '@/components/sections/aboutus';
 import ContactUs from '@/components/sections/contactus';
 
 
@@ -49,7 +48,6 @@ export default function Home() {
             <a href="#hero">Home</a>
             <a href="#specialities">Specialities</a>
             <a href="#projects">Projects</a>
-            <a href="#about">About Us</a>
             <a href="#contact">Contact Us</a>
           </nav>
 
@@ -70,7 +68,6 @@ export default function Home() {
             <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Home</a>
             <a href="#specialities" onClick={() => setMobileMenuOpen(false)}>Specialities</a>
             <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</a>
           </div>
         )}
@@ -109,7 +106,6 @@ export default function Home() {
         {/* Sections */}
         <Specialities />
         <Projects />
-        <AboutUs />
         <ContactUs />
       </main>
 

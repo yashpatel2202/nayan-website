@@ -1,0 +1,130 @@
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem; /* Added padding below the title */
+  color: #222;
+}
+
+
+/* Main grid container */
+.collage {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 200px;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+/* Each collage item */
+.collageItem {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #f0f0f0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.collageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* Initial desaturated state */
+  filter: saturate(20%);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Smooth zoom + saturation on hover */
+.collageItem:hover img {
+  transform: scale(1.08);
+  filter: saturate(100%);
+}
+
+.collageItem:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+/* ---------- Custom Layout ---------- */
+.item1 { grid-column: 1 / span 4; grid-row: 1 / span 2; }
+.item2 { grid-column: 5 / span 3; grid-row: 1 / span 1; }
+.item3 { grid-column: 8 / span 5; grid-row: 1 / span 2; }
+.item4 { grid-column: 2 / span 5; grid-row: 3 / span 2; }
+.item5 { grid-column: 7 / span 3; grid-row: 3 / span 1; }
+.item6 { grid-column: 10 / span 3; grid-row: 3 / span 2; }
+.item7 { grid-column: 1 / span 3; grid-row: 5 / span 1; }
+.item8 { grid-column: 4 / span 4; grid-row: 5 / span 2; }
+.item9 { grid-column: 8 / span 2; grid-row: 5 / span 1; }
+.item10 { grid-column: 10 / span 3; grid-row: 5 / span 2; }
+.item11 { grid-column: 3 / span 3; grid-row: 7 / span 2; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  cursor: zoom-out; /* Visual cue for click-to-close */
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  animation: scaleUp 0.3s ease;
+  cursor: default; /* Prevent pointer on image */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- Mobile Responsiveness ---------- */
+@media screen and (max-width: 768px) {
+  .collage {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 140px;
+    gap: 0.5rem;
+  }
+
+  .item1 { grid-column: 1 / span 6; grid-row: 1 / span 2; }
+  .item2 { grid-column: 1 / span 3; grid-row: 3 / span 1; }
+  .item3 { grid-column: 4 / span 3; grid-row: 3 / span 2; }
+  .item4 { grid-column: 1 / span 3; grid-row: 4 / span 1; }
+  .item5 { grid-column: 4 / span 3; grid-row: 5 / span 1; }
+  .item6 { grid-column: 1 / span 3; grid-row: 5 / span 2; }
+  .item7 { grid-column: 4 / span 2; grid-row: 6 / span 1; }
+  .item8 { grid-column: 6 / span 1; grid-row: 6 / span 1; }
+  .item9 { grid-column: 1 / span 2; grid-row: 7 / span 1; }
+  .item10 { grid-column: 3 / span 3; grid-row: 7 / span 2; }
+  .item11 { grid-column: 6 / span 1; grid-row: 7 / span 1; }
+}
