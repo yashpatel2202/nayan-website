@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-image: url('/images/bg.webp');
   background-size: cover;
   background-position: center;
@@ -139,7 +139,7 @@
 
   .contentLogo {
     position: absolute;
-    top: 40vh !important;          /* middle of viewport height */
+    top: 40dvh !important;          /* middle of viewport height */
     left: 50% !important;          /* center horizontally */
     transform: translate(-50%, -40%) !important;
     z-index: 20;
@@ -151,7 +151,7 @@
 
   .scrollIndicator {
     position: absolute;
-    top: calc(20% + 40vh) !important; /* 20% logo top + its height + a gap */
+    top: calc(20% + 40dvh) !important; /* 20% logo top + its height + a gap */
     left: 50%;
     transform: translateX(-50%);
     width: 120px;      /* adjust size as needed */
@@ -163,7 +163,7 @@
 
   .tagline {
     position: absolute;
-    top: calc(20% + 30vh) !important;   /* 20% hero top + logo height + a bit of spacing */
+    top: calc(20% + 30dvh) !important;   /* 20% hero top + logo height + a bit of spacing */
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -186,7 +186,7 @@
 
   /* scroll-snap-type: y mandatory; */
   overflow-y: scroll;
-  height: 100vh; 
+  height: 100dvh; 
 
   /* Smooth scroll for snapping */
   scroll-behavior: smooth;
@@ -198,7 +198,7 @@
 /* ===== Hero Container (Logo + Secondary Image) ===== */
 .heroContainer {
   position: relative;  /* remove fixed/absolute for main content */
-  min-height: 100vh;   /* full viewport height */
+  min-height: 100dvh;   /* full viewport height */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -229,7 +229,7 @@
 }
 
 .contentLogo img {
-  height: 15vh;
+  height: 15dvh;
   width: auto;
 }
 
@@ -253,7 +253,7 @@
 /* Scroll indicator positioned below the centered logo */
 .scrollIndicator {
   position: absolute;
-  top: calc(20% + 10vh); /* 20% logo top + its height + a gap */
+  top: calc(20% + 10dvh); /* 20% logo top + its height + a gap */
   left: 50%;
   transform: translateX(-50%);
   width: 120px;      /* adjust size as needed */
@@ -279,7 +279,7 @@
 /* Tagline text below the logo */
 .tagline {
   position: absolute;
-  top: calc(20% + 6vh);   /* 20% hero top + logo height + a bit of spacing */
+  top: calc(20% + 6dvh);   /* 20% hero top + logo height + a bit of spacing */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;             /* full width */

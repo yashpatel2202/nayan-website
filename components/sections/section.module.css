@@ -1,6 +1,6 @@
 .section {
   scroll-snap-align: start;  /* snap to top */
-  min-height: 100vh;         /* full viewport height */
+  min-height: 100dvh;         /* full viewport height */
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
