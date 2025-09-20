@@ -34,35 +34,37 @@ export default function Home() {
     <>
       {/* Header */}
       <header className={`${styles.header} ${showHeader ? styles.headerVisible : ''}`}>
-        {/* Header Logo */}
-        <div
-          className={styles.logo}
-          onClick={() => window.location.reload()} // reload page on click
-          style={{ cursor: 'pointer' }}
-        >
-          <img src="/images/logo.webp" alt="Logo" className={styles.logoImage} />
+        {/* Top row: logo + desktop nav + hamburger */}
+        <div className={styles.headerTop}>
+          <div
+            className={styles.logo}
+            onClick={() => window.location.reload()}
+            style={{ cursor: 'pointer' }}
+          >
+            <img src="/images/logo.webp" alt="Logo" className={styles.logoImage} />
+          </div>
+
+          {/* Desktop menu */}
+          <nav className={styles.nav}>
+            <a href="#hero">Home</a>
+            <a href="#specialities">Specialities</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+          </nav>
+
+          {/* Mobile Hamburger */}
+          <div
+            className={`${styles.mobileHamburger} ${mobileMenuOpen ? styles.open : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
 
-        {/* Desktop menu */}
-        <nav className={styles.nav}>
-          <a href="#hero">Home</a>
-          <a href="#specialities">Specialities</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
-        </nav>
-
-        {/* Mobile hamburger / close button */}
-        <div
-          className={`${styles.mobileHamburger} ${mobileMenuOpen ? styles.open : ''}`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        {/* Mobile dropdown menu */}
+        {/* Mobile menu (links under top row) */}
         {mobileMenuOpen && (
           <div className={styles.mobileMenu}>
             <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Home</a>
@@ -73,6 +75,7 @@ export default function Home() {
           </div>
         )}
       </header>
+
 
       {/* Background */}
       <div className={styles.background} />
