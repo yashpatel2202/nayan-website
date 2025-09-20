@@ -1,0 +1,44 @@
+.section {
+  scroll-snap-align: start;  /* snap to top */
+  min-height: 100vh;         /* full viewport height */
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  line-height: 1.6;
+  font-family: 'Agdasima', sans-serif;
+  background: rgba(0,0,0,0.0); /* transparent to blend with hero/bg */
+}
+
+/* Professional section header */
+.section h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--foreground, #eb9616ff);  /* your gold accent */
+  text-align: center;
+  letter-spacing: 1.2px;                 /* spacing for elegance */
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Optional underline below header */
+.section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--foreground, #eb9616ff);
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* Section text */
+.section p {
+  max-width: 900px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ffffffcc; /* slightly transparent for softer look */
+  line-height: 1.5;
+}

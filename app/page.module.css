@@ -1,0 +1,319 @@
+/* ===== Background ===== */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/bg.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* ===== Header ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: rgba(0,0,0,0);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000; /* Ensure above everything */
+}
+
+.headerVisible {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+/* ===== Logo ===== */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+}
+
+/* ===== Desktop Navigation ===== */
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--foreground, #eb9616ff);
+}
+
+/* ===== Mobile Hamburger / Close Button ===== */
+.mobileHamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  justify-content: center;
+}
+
+.mobileHamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger transforms into X when open */
+.mobileHamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.mobileHamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.mobileHamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+  /* ===== Mobile Dropdown Menu (your version) ===== */
+.mobileMenu {
+  position: fixed;          /* fixed so it overlays content */
+  top: 70px;                /* below header */
+  left: 0;
+  width: 100%;              /* full width */
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent for glass effect */
+  backdrop-filter: blur(12px);           /* blur background */
+  -webkit-backdrop-filter: blur(12px);   /* Safari support */
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  z-index: 99;  /* Just below header */
+}/* Mobile menu links */
+.mobileMenu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.mobileMenu a:hover {
+  color: var(--foreground, #eb9616ff);
+}
+
+/* ===== Responsive Rules ===== */
+@media screen and (max-width: 768px) {
+  .nav {
+    display: none; /* hide desktop menu */
+  }
+
+  .mobileHamburger {
+    display: flex; /* show hamburger */
+  }
+
+  .contentLogo {
+    position: absolute;
+    top: 40vh !important;          /* middle of viewport height */
+    left: 50% !important;          /* center horizontally */
+    transform: translate(-50%, -40%) !important;
+    z-index: 20;
+    width: 100%;        /* ensure full width for alignment */
+    display: flex;      /* enable flexbox centering */
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .scrollIndicator {
+    position: absolute;
+    top: calc(20% + 40vh) !important; /* 20% logo top + its height + a gap */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;      /* adjust size as needed */
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tagline {
+    position: absolute;
+    top: calc(20% + 30vh) !important;   /* 20% hero top + logo height + a bit of spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Agdasima', sans-serif; /* ensure the font is applied */
+    text-align: center;
+    line-height: 1.1;
+    z-index: 3;
+  }
+}
+
+/* ===== Content Full Width ===== */
+.content {
+  width: 100%;
+  margin: 0;
+  color: white;
+  line-height: 1.6;
+  box-sizing: border-box; 
+
+  /* scroll-snap-type: y mandatory; */
+  overflow-y: scroll;
+  height: 100vh; 
+
+  /* Smooth scroll for snapping */
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground, #eb9616ff) transparent;
+}
+
+/* ===== Hero Container (Logo + Secondary Image) ===== */
+.heroContainer {
+  position: relative;  /* remove fixed/absolute for main content */
+  min-height: 100vh;   /* full viewport height */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;  /* snap to top */
+  z-index: 1;
+}
+
+/* Secondary Image */
+.secondaryImage {
+  position: absolute;
+  bottom: 0;   /* pinned to bottom initially */
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* Large Content Logo stacked above */
+.contentLogo {
+  position: absolute;
+  top: 20%;          
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;  /* Lower than header */
+}
+
+.contentLogo img {
+  height: 15vh;
+  width: auto;
+}
+
+/* ===== Bottom Fixed Footer ===== */
+.bottomImage {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.footerHalf {
+  opacity: 0.5; /* half opaque after scroll */
+  transition: opacity 0.3s ease;
+}
+
+/* Scroll indicator positioned below the centered logo */
+.scrollIndicator {
+  position: absolute;
+  top: calc(20% + 10vh); /* 20% logo top + its height + a gap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;      /* adjust size as needed */
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scrollIndicator > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* Extended image between hero and text */
+.extendedImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tagline text below the logo */
+.tagline {
+  position: absolute;
+  top: calc(20% + 6vh);   /* 20% hero top + logo height + a bit of spacing */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: 'Agdasima', sans-serif; /* ensure the font is applied */
+  text-align: center;
+  z-index: 3;
+}
+
+/* Sections */
+.section {
+  padding: 6rem 2rem;   /* vertical padding for spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  line-height: 1.6;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Agdasima', sans-serif;
+}
+
+/* WebKit browsers */
+.content::-webkit-scrollbar {
+  width: 8px; /* width of scrollbar track */
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent; /* track background */
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: var(--foreground, #eb9616ff); /* use root foreground */
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--foreground, #eb9616ff); /* same on hover */
+}
