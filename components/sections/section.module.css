@@ -33,12 +33,3 @@
   margin: 8px auto 0 auto;
   border-radius: 2px;
 }
-
-/* Section text */
-.section p {
-  max-width: 900px;
-  text-align: center;
-  font-size: 1.1rem;
-  color: #ffffffcc; /* slightly transparent for softer look */
-  line-height: 1.5;
-}
