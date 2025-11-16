@@ -18,8 +18,8 @@ const agdasima = Agdasima({
 });
 
 export const metadata: Metadata = {
-  title: "Akshar",
-  description: "Structure Design Engineers and Cunsaltants",
+  title: "Akshar Structure Design Engineers and Consultants",
+  description: "A structural engineering consultancy providing design-oriented solutions for buildings and infrastructure, focused on safe, efficient, and economical structure design.",
 };
 
 export default function RootLayout({
